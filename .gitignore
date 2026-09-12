@@ -1,5 +1,6 @@
 # Subversion — metadados da working copy, nao versionar no Git
 .svn/
+*.svn-base
 
 # Cache e saida gerada do GWT (arquivos facilmente > 100 MB)
 gwt-unitCache/
