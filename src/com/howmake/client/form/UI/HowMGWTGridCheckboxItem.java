@@ -1,0 +1,141 @@
+package com.howmake.client.form.UI;
+
+import com.howmake.client.form.partner.HowMGWTFormField;
+import com.howmake.client.form.partner.HowMGWTUtilities;
+import com.smartgwt.client.widgets.form.DynamicForm;
+import com.smartgwt.client.widgets.form.fields.CheckboxItem;
+
+public class HowMGWTGridCheckboxItem  implements HowMGWTFormField{
+ 
+	private CheckboxItem field = new CheckboxItem();
+
+	private String howMSelectValue;
+	private String howMUnselectValue;
+	
+	public HowMGWTGridCheckboxItem(){		
+	}
+	public HowMGWTGridCheckboxItem(String name, String title){
+		this();
+		this.field.setName(name);
+		this.field.setTitle(title);
+	}
+	
+	/**
+	 * @return the field
+	 */
+	public CheckboxItem getField() {
+		return field;
+	}
+	/**
+	 * @param field the field to set
+	 */
+	public void setField(CheckboxItem field) {
+		this.field = field;
+	}
+	
+	public void setHowMValue(Object value){
+	
+		if( !HowMGWTUtilities.isEmpty(this.getHowMUnselectValue()) || !HowMGWTUtilities.isEmpty(this.getHowMSelectValue())){
+			 		
+			if (  HowMGWTUtilities.isEquals(HowMGWTUtilities.getCBoolean(value), this.getHowMSelectValue() ))
+				this.field.setValue(true);
+			else if ( HowMGWTUtilities.isEquals(value, this.getHowMUnselectValue() ))
+				this.field.setValue(false);
+			else 
+				this.field.setValue(false);
+		}			
+		else
+			this.field.setValue(value);
+		
+	}
+	
+	public Object getHowMValue(){
+
+		if( !HowMGWTUtilities.isEmpty(this.getHowMUnselectValue()) || !HowMGWTUtilities.isEmpty(this.getHowMSelectValue())){
+			
+			if( this.field.getValueAsBoolean().booleanValue() ){
+				if ( ! HowMGWTUtilities.isEmpty( this.getHowMSelectValue() ) )
+					return this.getHowMSelectValue();
+				else
+					return this.field.getValue();
+			}
+			else{
+				if ( ! HowMGWTUtilities.isEmpty( this.getHowMUnselectValue() ) )
+					return this.getHowMUnselectValue();
+				else
+					return this.field.getValue();				
+			}
+		}			
+		else
+			return this.field.getValue();
+	
+	}
+	
+	public String getHowMValueAsString(){
+		return HowMGWTUtilities.getString(this.getHowMValue());
+	}
+	
+	public void setHowMBound(int widthLabel, int widthField){
+ 
+	}	
+	
+	public void setHowMDisable(Boolean disabled){
+ 
+	}	
+	
+	public void setHowMBound(int widthLabel){
+ 
+	}
+	
+	
+	public void setHowMFocusInItem(){
+		this.field.focusInItem();
+	}
+ 
+	public void setHowMLabelTitle(String label){
+		this.field.setTitle(label);
+	}
+ 
+	public String getHowMLabelTitle(){
+		return this.field.getTitle();
+	}
+	/**
+	 * @return the howMSelectValue
+	 */
+	public String getHowMSelectValue() {
+		return howMSelectValue;
+	}
+	/**
+	 * @param howMSelectValue the howMSelectValue to set
+	 */
+	public void setHowMSelectValue(String howMSelectValue) {
+		this.howMSelectValue = howMSelectValue;
+	}
+	/**
+	 * @return the howMUnselectValue
+	 */
+	public String getHowMUnselectValue() {
+		return howMUnselectValue;
+	}
+	/**
+	 * @param howMUnselectValue the howMUnselectValue to set
+	 */
+	public void setHowMUnselectValue(String howMUnselectValue) {
+		this.howMUnselectValue = howMUnselectValue;
+	}
+	
+	public void setTitleStyle(String styleName) {	
+		this.getField().setTextBoxStyle(styleName);
+	}
+
+	public DynamicForm getHowMForm(){
+		return null;
+	}
+	public void howMFocusInItem() {
+		// TODO Auto-generated method stub
+		
+	}
+
+ 
+
+}

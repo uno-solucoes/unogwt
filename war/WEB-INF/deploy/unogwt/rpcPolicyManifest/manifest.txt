@@ -1,0 +1,3 @@
+# Module unogwt
+# RPC service class, partial path of RPC policy file
+com.howmake.client.HowMProxyService, 2C3E9C0D503E36210F71A9E677090EC4.gwt.rpc

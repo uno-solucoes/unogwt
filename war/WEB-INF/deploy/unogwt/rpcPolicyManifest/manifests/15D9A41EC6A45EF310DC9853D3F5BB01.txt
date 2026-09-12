@@ -1,0 +1,2 @@
+serviceClass: com.howmake.client.HowMProxyService
+path: 2C3E9C0D503E36210F71A9E677090EC4.gwt.rpc

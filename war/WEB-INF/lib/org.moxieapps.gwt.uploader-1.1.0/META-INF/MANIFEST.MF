@@ -1,0 +1,21 @@
+Manifest-Version: 1
+Bnd-LastModified: 1355513505073
+Bundle-Description: Moxie Apps GWT Uploader
+Bundle-ManifestVersion: 2
+Bundle-Name: Moxie Apps GWT Uploader
+Bundle-SymbolicName: org.moxieapps.gwt.uploader
+Bundle-Version: 1.1.0
+Created-By: 1.6.0_22 (Sun Microsystems Inc.)
+Export-Package: org.moxieapps.gwt.uploader;version="1.1.0",org.moxieapps
+ .gwt.uploader.client;uses:="com.google.gwt.core.client,com.google.gwt.j
+ son.client,com.google.gwt.event.dom.client,com.google.gwt.user.client.u
+ i,com.google.gwt.dom.client,com.google.gwt.user.client,com.google.gwt.e
+ vent.shared,org.moxieapps.gwt.uploader.client.events";version="1.1.0",o
+ rg.moxieapps.gwt.uploader.client.events;uses:="org.moxieapps.gwt.upload
+ er.client";version="1.1.0",org.moxieapps.gwt.uploader.public;version="1
+ .1.0"
+Import-Package: com.google.gwt.core.client,com.google.gwt.dom.client,com
+ .google.gwt.event.dom.client,com.google.gwt.event.shared,com.google.gwt
+ .json.client,com.google.gwt.user.client,com.google.gwt.user.client.ui
+Include-Resource: ..\classes
+Tool: Bnd-1.44.0

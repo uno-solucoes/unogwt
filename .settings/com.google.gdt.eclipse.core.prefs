@@ -1,0 +1,4 @@
+eclipse.preferences.version=1
+jarsExcludedFromWebInfLib=C\:/HCINF/UNOERP_ClientJ7T8/UnoGWT/war/WEB-INF/lib/HowMGWTNIO.jar|C\:/HCINF/UNOERP_ClientJ7T8/UnoGWT/war/WEB-INF/lib/gwt-gantt-0.1-RC00.jar|C\:/HCINF/UNOERP_ClientJ7T8/UnoGWT/war/WEB-INF/lib/gwtexporter-2.3.0.jar|C\:/HCINF/UNOERP_ClientJ7T8/UnoGWT/war/WEB-INF/lib/smartgwt-skins.jar|C\:/HCINF/UNOERP_ClientJ7T8/UnoGWT/war/WEB-INF/lib/smartgwt.jar|C\:/HCINF/UNOERP_ClientJ7T8/UnoGWT/war/WEB-INF/lib/swfupload-gwt-1.1-SNAPSHOT.jar|C\:/HCINF/UNOERP_ClientJ7T8/UnoGWT/war/WEB-INF/lib/HcinfCMS.jar|C\:/HCINF/UNOERP_ClientJ7T8/UnoGWT/war/WEB-INF/lib/org.moxieapps.gwt.uploader-1.1.0.jar
+warSrcDir=war
+warSrcDirIsOutput=true

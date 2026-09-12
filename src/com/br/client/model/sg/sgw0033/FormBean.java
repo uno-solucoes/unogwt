@@ -1,0 +1,98 @@
+package com.br.client.model.sg.sgw0033;
+
+public class FormBean extends com.howmake.client.form.model.HowMGWTFormBean{
+	public FormBean(){
+	}
+
+
+	public String getModule(){
+		return toString("module");
+	}
+
+	public void setModule(String value){
+		setString("module",value);
+	}
+
+
+	public com.br.client.model.sg.entity.eFile[] getFiles(){
+		Object obj = _self.get("files");
+		if ( obj == null )
+			return null;
+		else
+			return (com.br.client.model.sg.entity.eFile[])obj;
+
+	}
+
+	public void setFiles(com.br.client.model.sg.entity.eFile[] value){
+		_self.remove("files");
+		if ( value != null );
+			_self.put("files", value);
+
+	}
+
+
+	public int getOPERATION_INSERT(){
+		return toInteger("OPERATION_INSERT");
+	}
+
+	public void setOPERATION_INSERT(int value){
+		setInteger("OPERATION_INSERT",value);
+	}
+
+
+	public int getOPERATION_UPDATE(){
+		return toInteger("OPERATION_UPDATE");
+	}
+
+	public void setOPERATION_UPDATE(int value){
+		setInteger("OPERATION_UPDATE",value);
+	}
+
+
+	public int getOPERATION_DELETE(){
+		return toInteger("OPERATION_DELETE");
+	}
+
+	public void setOPERATION_DELETE(int value){
+		setInteger("OPERATION_DELETE",value);
+	}
+
+
+	public int getOPERATION_QUERY(){
+		return toInteger("OPERATION_QUERY");
+	}
+
+	public void setOPERATION_QUERY(int value){
+		setInteger("OPERATION_QUERY",value);
+	}
+
+
+	@Override
+	public void loadCustomArray(String name, com.google.gwt.json.client.JSONArray array){
+		if ( "files".equalsIgnoreCase(name) ){
+			com.br.client.model.sg.entity.eFile[] obj = new com.br.client.model.sg.entity.eFile[array.size()];
+			_self.put(name,obj);
+			for ( int i = 0 ; i < array.size(); i ++ ){
+				com.google.gwt.json.client.JSONValue object = array.get(i);
+				if ( object.isObject() != null )
+					obj[i] = (com.br.client.model.sg.entity.eFile)loadCustom(name, object.isObject());
+				 
+			}
+		}
+	}
+
+	@Override
+	public Object loadCustom(String name, com.google.gwt.json.client.JSONObject value){
+		if ( "files".equalsIgnoreCase(name) ){
+			com.br.client.model.sg.entity.eFile obj = com.br.client.model.sg.entity.eFile.newInstance();
+			obj.load(null , value);
+			return obj;
+		}
+		return null;
+	}
+
+
+	public static final com.br.client.model.sg.sgw0033.FormBean newInstance(){
+		return new com.br.client.model.sg.sgw0033.FormBean();
+	}
+}

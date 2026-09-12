@@ -1,0 +1,7 @@
+http://j2eevideotutorial.hightechno.info/2011/06/how-use-gwt-with-rpc-and-soap.html
+
+http://poolafonso.wordpress.com/2006/12/22/gerando-relatorios-com-jsp-e-jasper-reports/
+
+Desenvolvimento Android 
+	http://www.oficinadanet.com.br/artigo/mobile/instalando_ambiente_de_desenvolvimento_android
+	http://pontov.com.br/site/java/69-android/276-configurando-ambiente-de-desenvolvimento-android-com-eclipse

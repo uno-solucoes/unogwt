@@ -1,0 +1,474 @@
+<html>
+<head> 
+
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1"></meta>
+	<meta name="gwt:property" content="locale=pt_BR">
+ 
+  	  
+    <title>GWT-UNOGerenciador</title>
+    <!--CSS for loading message at application Startup-->
+    <style type="text/css">
+        body { overflow:hidden }
+        #loading {
+            border: 1px solid #ccc;
+            position: absolute;
+            left: 45%;
+            top: 40%;
+            padding: 2px;
+            z-index: 20001;
+            height: auto;
+        }
+
+		.detalheAgendaVillaBisutti{
+			font-family: Impact, Charcoal, sans-serif;
+			font-size: 18;
+	
+		}
+
+        #loading a {
+            color: #225588;
+        }
+
+        #loading .loadingIndicator {
+            background: white;
+            font: bold 13px tahoma, arial, helvetica;
+            padding: 10px;
+            margin: 0;
+            height: auto;
+            color: #444;
+        }
+
+        #loadingMsg {
+            font: normal 10px arial, tahoma, sans-serif;
+        }
+        
+        
+        .agendaNoEdited{
+        	background-color: rgb(245,100,10);
+        	color: #ffffff;
+        }
+    </style>
+
+ 
+</head>
+<body onload="javaScript:onLoadPage();" onunload="onUnloadPage();">
+<iframe id="__gwt_historyFrame" style="width:0;height:0;border:0"></iframe>
+
+<!--add loading indicator while the app is being loaded-->
+<div id="loadingWrapper">
+<div id="loading">
+    <div class="loadingIndicator">
+        <!--<img src="images/pieces/48/cube_green.gif" width="32" height="32" style="margin-right:8px;float:left;vertical-align:top;"/>SmartGWT<br/>-->
+        <img src="images/loading.gif" width="32" height="32" style="margin-right:8px;float:left;vertical-align:top;"/>Uno Soluções<br/>
+        <span id="loadingMsg">Carregando Estilos e Imagens..</span></div>
+
+</div>
+</div>
+
+
+<script type="text/javascript">document.getElementById('loadingMsg').innerHTML = 'Carregando API principal...';</script>
+
+<!--include the SC Core API-->
+<script src=unogwt/sc/modules/ISC_Core.js></script>
+<script src=unogwt/swfupload.js></script>
+ 
+
+<!--include SmartClient -->
+<link rel="stylesheet" type="text/css" href="jsgantt.css">
+<link rel="stylesheet" href="unogwt/sc/skins/Enterprise/skin_styles.css">
+
+<link rel="stylesheet" href="UnoGWT.css">
+
+
+
+<script type="text/javascript" src="jsgantt.js"></script>
+
+
+ 
+<!--load skin-->
+<script type="text/javascript">document.getElementById('loadingMsg').innerHTML = 'Carregando Componente...';</script>
+
+<script type="text/javascript">
+
+
+	function getUnoUrlServiceStruts(){
+		return "/Inicio";
+	}		
+
+	function getUnoUrlServiceDonwload(){
+		return "http://localhost:8080/Inicio";
+	}
+
+	function getUnoUrlService(){
+		return "http://localhost:8080/Inicio";
+	}
+
+	function getUnoEmpresa(){
+		return "1";
+	}
+
+	function getUnoColaborador(){
+		return "1";
+	}
+
+	function getUnoHelpGWT(){
+		return "http://www.ucommerce.com.br/manual_html/sgw0027.htm"; 
+	}
+	
+	function getUnoTituloGWT(){
+		return "NF-ePaulista de Serviço RPS"; 
+	}
+	
+	function getUnoCorpoGWT(){
+		return "0001";  // Multi-Empresa (01.01)
+		// return "Multi-Empresa"; 
+	}
+	
+	function getUnoProgramaGWT(){
+	    // return "VDW1000";
+
+		// return "VDP0001";
+		// return "CDQ0101"
+		// return "SGW0027";
+
+		// return "VDW1000";
+
+	     return "FNW0217";
+	    // return "FNW0221";
+	    // return "FNW0235";
+
+	    // return "FNW0223";
+	    // return "teste";
+	    // return "FNW0224";
+	    
+	    // return "FNW0017";
+	    // return "FNW0015";
+	    // return "FNW0016";
+	    
+	    // return "VDW0800";
+	    // return "EDW0001";
+	    
+	    // return "EDW0002";
+		// return "EDW0003";
+
+	    // return "SERVICE";
+	   
+	    // return "AGENT";
+	    // return "VDQ0002";
+		// return "FNR0010"; 
+		// return "FNR0011";
+		// return "GGW0006";
+		// return "VDW0028";
+	 
+		// return "VDW0030";
+		// return "VDW0031";
+
+		// return "CDQ0001";
+		// return "OSR0001";
+		// return "OCW0001";
+
+		// return "ATW0117";
+		
+		// return "ATW0117a";
+
+	}
+	
+	function getUnoAcaoGWT(){
+		return "vdp0001"; 
+	}
+ 
+
+	// var unoGWTGateway;
+	
+	function unoGWTInitializeGateway(){		
+		unoGWTGateway = new uno.UnoGWTGateway();
+	}
+
+	function popularProdutoGWT(codProduto, qtde){
+		 var elementChange = document.getElementById('descProduto');
+		 if ( elementChange != undefined ){
+		 		elementChange.value = codProduto;
+		 }	
+	}
+
+	var base = " " ;
+	function createOSR0001Antares(){
+
+		var codOs = "2028";
+		var codAt = "2";
+
+		// var unoGWTGateway = HowMGetUnoGWT();
+		unoGWTGateway.createReport("OSR0001_ImpressaoOS.jrxml", "OSR0001");
+		unoGWTGateway.setSize( "795", "620" );
+		// Quando informado a ação do Struts, o framework verifica se há corpo cadastrado, se houver verifica 
+		// se o nome do layout é GWT, se for executa a interface de layout GWT, caso contrário executa a ação
+		// do struts.
+		unoGWTGateway.setStrutsAction( base + "osr0001.do?method=buscar&codOs="+codOs+"&codAtendimento="+codAt );
+		unoGWTGateway.addReportParameter("pCOD_OS"         ,codOs , "I");
+		unoGWTGateway.addReportParameter("pCOD_ATENDIMENTO",codAt , "I");
+		unoGWTGateway.showReport();
+		
+	    
+	}	
+
+	function createOSR0001APrime(){
+
+		var codPedido = "57063";
+		
+		// var unoGWTGateway = HowMGetUnoGWT();
+		unoGWTGateway.createReport("OSR0001A_ImpressaoOSPrime.jrxml", "OSR0001A");
+		unoGWTGateway.setSize( "795", "620" );
+		// Quando informado a ação do Struts, o framework verifica se há corpo cadastrado, se houver verifica 
+		// se o nome do layout é GWT, se for executa a interface de layout GWT, caso contrário executa a ação
+		// do struts.
+		// unoGWTGateway.setStrutsAction( base + "osr0001.do?method=buscar&codOs="+codOs+"&codAtendimento="+codAt );
+		unoGWTGateway.addReportParameter("pCOD_PEDIDO" 		,codPedido  , "I");
+
+		unoGWTGateway.addParameter("emailRemetente", "sistemafco@gmx.com", "S");
+		unoGWTGateway.addParameter("emailDestinatario", "jpleiser@gmail.com", "S");
+		unoGWTGateway.addParameter("emailAssunto","OS:57063", "S");
+		unoGWTGateway.addParameter("emailNomeRemetente","Julio P. Leiser", "S");
+		unoGWTGateway.addParameter("emailMensagem","Apenas um teste", "S");
+		unoGWTGateway.addParameter("emailSMTP","mail.gmx.com");
+		unoGWTGateway.showReport();
+			 
+	}
+
+	function addGoogleAgenda(){
+		//								 (String tipoAgenda, String labelAgenda	, String oc	, String descricao, 	String codResponsavel)
+		unoGWTGateway.showAddGoogleAgenda("OC"			   , "Ocorrência"		,"32400"	, "Apenas um testes"	,"5", "Cliente : Unosoluções\nContato : Julio ; Telefone : 5584-0835" , 
+				"Alameda dos guatás, 873, Planauto Paulista - SP\n"				
+		);
+	}	
+
+	function showGoogleAgendaTaskList(){
+		unoGWTGateway.showGoogleAgendaTaskList("OC","Ocorrência","32400");
+	} 
+
+	function showEditorTextArea(){
+		unoGWTGateway.showEditorTextArea(document.getElementById('codProduto'), document.getElementById('codProduto').value, true);
+	}	
+
+
+
+	function visualizarSVD0010(){
+	
+		codEmpresa 		= "1";
+		tpOwner			= "1";
+		codPlano		= "639";
+		participante	= "Vendedor"; 
+		vendedor		= "Adriana Sanches da Silva ";
+		percComissao 	= "5,0000";
+		parcelas 		= "12";
+		unoGWTGateway.showSVD0010(window, codEmpresa , tpOwner, codPlano, participante, vendedor, percComissao, parcelas );
+	}
+
+	function closeSVD0010(excecoes){
+		window.alert('fechou a janela :'+excecoes);
+	}
+
+	function visualizaCDD0007(){
+			codCliente = "3";
+			nomeCliente = "QUALYSOFT";
+			unoGWTGateway.showCDD0007(window, codCliente, nomeCliente);
+	}	
+
+
+	function visualizaCDD0008(){
+		tabelaPreco = "FatDistr";$
+		unoGWTGateway.showCDD0008(window, tabelaPreco);
+	}	
+
+	function showUFs(){	
+		var hiddenField = document.getElementById("hiddeSelectUF");
+		unoGWTGateway.showUCFieldListaUF(hiddenField,"buttonShowUFs");
+	}
+
+	function uploadFileSample(){
+		// temp.gif;.gif;100;W;// temp1.gif;.gif;200;W 
+		var subFolders 		= "1_1/temp.gif;.gif;100;W;/temp1.gif;.gif;200;W,1020,30001,";
+		var labelPrefix     = "Certificado";
+		var rootPath   		= "D:/Trabalho/dev/apache-tomcat-6.0.18/webapps/UCOMMERCE/UCommerceAbril2012/empresa/1/certificados/";
+		// unoGWTGateway.uploadFiles(window, subFolders, labelPrefix, rootPath, "romaneio", "");
+		unoGWTGateway.uploadFiles(window, subFolders, labelPrefix, rootPath, "certificados", "http://127.0.0.1:8080/UCOMMERCE/UCommerceAbril2012/empresa/1/certificados/1_1/");
+	}
+	
+	function onUploadFileClose(action){	 
+		window.alert('Close : '+action);
+	}
+
+
+	function onLoadPage(){
+
+ 
+	}
+
+	function onUnloadPage(){
+ 
+	}
+
+	function showGEDBuscar(){
+		unoGWTGateway.GEDBuscar();
+	}
+
+	function imprimirEtiquetasPedido(){
+		unoGWTGateway.imprimirEtiquetasPedido(window, "40859");
+	}
+
+	function detalhePerformanceVendas(){
+		unoGWTGateway.visualizarDetalhesPerformanceVenda( parent, '', 'RIBBON', '');
+	}	
+
+	function showBoletimCaixa(){
+		 
+		unoGWTGateway.showWindowBoletimCaixa("boletimCaixa");
+	}
+
+	function showWindowTransfereVendedor(){
+		unoGWTGateway.showWindowTransfereVendedor(this,"59660,59663,59665,");
+	}
+
+	function onHowMReloadClientes(){
+		window.alert("Fechou Selecionando");
+	}
+
+	function showWindowPainelComissaoMargem(){
+		unoGWTGateway.showWindowPainelComissaoMargem(window);
+	}
+
+	function changeWindowPainelComissaoMargem(){
+		window.alert("change");
+	}
+	
+
+	function showWindowMonitorEDIControle(){
+		unoGWTGateway.showWindowMonitorEDIControle("40895", null);
+	}
+
+	function showWindowReimprimirCertificado(){
+		unoGWTGateway.showWindowReimprimirCertificado("184396", null);
+	}		
+	
+</script>
+
+
+<script type="text/javascript" src="unogwt/swfupload.js"></script>
+<!--include the application JS-->
+<script type="text/javascript" src="unogwt/unogwt.nocache.js"></script>
+
+
+<div id="valorTotalItem" name="valorTotalItem">
+	valor total item
+</div>
+
+<div style="float: left;width: 300px; left: 0px; top: 0px; height: 100%; background: rgb(240,240,240);">
+
+
+
+
+		<div id="divTeste" name="divTeste"  style="position: absolute; width:525px; height:200px; top:200px; left:300px; background:rgb(230,200,200);">
+		
+		</div>
+		<input type="text" id="idTeste" > </input>
+	
+	
+		Editor HTML: <Input name="teste" type="button"  onclick="JavaScript:unoGWTGateway.createRichEditor( window , divTeste , 'Teste HTML' , 'idTeste', '525', '200');" >
+
+
+
+          
+ 
+
+	Acao Tela Busca de Produto Pedido: <Input name="teste" type="button"  onclick="JavaScript:unoGWTGateway.showUnoGWTVDQ0002( window , '2716', 	'campinas' , '0' , 		'codProduto' , 'descProduto' ,	 'qtde' , 	'precoVenda' , 	'P' , 'R$' );" >
+
+	Acao Tela Busca de Produto Atendimento: <Input name="teste" type="button"  onclick="JavaScript:unoGWTGateway.showUnoGWTVDQ0002Lookup( window , '2716', 'campinas' , '0' , 'codProduto' , 'descProduto' , 'qtde' , 'precoVenda' , 'valorTotalItem', 'P' , 'R$' );" >
+	<br/>
+	Acao Tela Consulta Produto : <Input name="teste" type="button"  onclick="JavaScript:unoGWTGateway.showUnoGWTVDQ0002Busca();" >
+
+
+	
+	Imprime OS : <Input name="teste" type="button"  onclick="createOSR0001Antares();" >
+	<br/>
+	
+	Imprime OS Orcamento : <Input name="teste" type="button"  onclick="createOSR0001APrime();" >
+	<br/>
+	
+	Adiciona OC Google Agenda : <Input name="teste" type="button"  onclick="addGoogleAgenda();" >
+	<br/>
+	
+	Google Agenda TaskList: <Input name="teste" type="button"  onclick="showGoogleAgendaTaskList();" >
+	<br/>
+	
+	Editor text Area: <Input name="showEditor" type="button"  onclick="showEditorTextArea();" >
+	<br/>
+	
+	Editor Excecao Comissao Vendedor : <Input name="showEditor" type="button"  onclick="visualizarSVD0010();" >
+	<br/>
+	
+	Editor Condiçoes Pagamento Cliente : <Input name="showEditor" type="button"  onclick="visualizaCDD0007();" >
+	<br/>
+	
+	Editor Condiçoes Pagamento Tabela Preço : <Input name="showEditor" type="button"  onclick="visualizaCDD0008();" >
+	<br/>
+	
+	Show UFs Button : <Input name="showEditor" id="buttonShowUFs" type="button"  onclick="showUFs();" >
+	<textarea id="hiddeSelectUF" rows="3" cols="3"></textarea>
+	<br/>
+	
+	Show Upload : <Input name="ShowUpload" id="ShowUpload" type="button"  onclick="uploadFileSample();" >
+	
+	<br/>
+	
+	Show GED : <Input name="ShowGED" id="ShowGED" type="button"  onclick="showGEDBuscar();" >
+	
+	<br/>
+	
+	Show Imprimir Etiquetas Pedido : <Input name="imprimirEtiquetasPedido" id="imprimirEtiquetasPedido" type="button"  onclick="imprimirEtiquetasPedido();" >
+
+	<br/>
+	Cod Produto:<input name="codProduto" type="text" id="codProduto" value="2S0598287BX" onchange="JavaScript:window.alert('teste');"/>
+	
+
+	<br/>
+	Descricao do Produto : <span id="descProduto" style="color:red;">
+		teste
+	</span>
+	<br/>
+	Quantidade do Produto : <input name="qtde" id="qtde" type="text" />
+	<br/>
+	Preco de venda : <input name='precoVenda' id='precoVenda' type='text'/>
+	
+	
+	<br/>
+	Cod Produto:<input name="codProduto" type="text" id="codProduto" value="11-" onchange="JavaScript:window.alert('teste');"/>
+	
+	<br/>
+	Detalhe Performance de Vendas : <Input name="detalhePerformanceVenda" id="detalhePerformanceVenda" type="button"  
+		onclick="detalhePerformanceVendas();" >
+
+	<br/>
+	Boletim de Caixa : <Input name="buttomBoletim" id="buttonBoletim" type="button"  onclick="showBoletimCaixa();" >
+
+	<br/>
+	Transferir Vendedor : <Input name="buttomTransferirVendedor" id="buttonTransferirVendedor" type="button"  onclick="showWindowTransfereVendedor();" >
+	
+	<br/>	
+	Comissao Margem : <Input name="showWindowPainelComissaoMargem" id="showWindowPainelComissaoMargem" type="button"  onclick="showWindowPainelComissaoMargem();" >
+
+
+	<br/>	
+	Monitoramento EDI : <Input name="showWindowMonitorEDIControle" id="showWindowMonitorEDIControle" type="button"  onclick="showWindowMonitorEDIControle();" >
+
+	<br/>	
+	Reimpressão Certificado: <Input name="showWindowReimprimirCertificado" id="showWindowReimprimirCertificado" type="button"  onclick="showWindowReimprimirCertificado();" >
+
+
+
+
+
+</div>
+<div id="boletimCaixa" style="width: 100%; left: 300px; top: 0px; height: 100%; background: rgb(100,111,112);">
+</div>
+
+</body>
+</html>

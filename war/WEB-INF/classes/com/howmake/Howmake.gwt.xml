@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE module PUBLIC "-//Google Inc.//DTD Google Web Toolkit 2.3.0//EN" "http://google-web-toolkit.googlecode.com/svn/tags/2.3.0/distro-source/core/src/gwt-module.dtd">
+<module>
+	<inherits name="com.google.gwt.user.User" />
+	
+	<!-- Other module inherits                                      -->
+	<!-- Other module inherits                                      -->
+	<inherits name='com.smartgwt.SmartGwt'/>
+	<inherits name="com.smartclient.SmartClientDefault"/>
+	<inherits name="com.howmake.HowMRPC"/>
+	<inherits name="org.swfupload.SWFUpload"/>
+
+	<inherits name="org.moxieapps.gwt.uploader.Uploader"/>
+
+	<extend-property name="locale" values="pt_BR"/>
+	<set-property-fallback name="locale" value="pt_BR"/>
+	<set-property name="locale" value="pt_BR"/>
+	
+	<source path="client"/>
+</module>
