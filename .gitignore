@@ -1,0 +1,37 @@
+# Subversion — metadados da working copy, nao versionar no Git
+.svn/
+*.svn-base
+
+# Cache e saida gerada do GWT (arquivos facilmente > 100 MB)
+gwt-unitCache/
+.gwt/
+war/WEB-INF/deploy/
+war/WEB-INF/classes/
+www-test/
+gwt-unitCache*
+
+# Eclipse / compilacao local
+bin/
+tmp/
+*.class
+*.launch
+.metadata/
+
+# Maven / Gradle / saidas de build
+target/
+build/
+.gradle/
+out/
+
+# Pacotes gerados (reconstroi no build)
+*.war
+*.ear
+
+# Logs e sistema
+*.log
+*.tmp
+*.swp
+.DS_Store
+Thumbs.db
+hs_err_pid*
+*~
